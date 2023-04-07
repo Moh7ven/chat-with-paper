@@ -28,7 +28,7 @@ const RoomScreen = ({ route }) => {
   useEffect(() => {
     const q = query(
       collection(firestore, "THREADS", thread._id, "MESSAGES"),
-      orderBy("createdAt")
+      orderBy("createdAt", "desc")
     );
     const unsub = onSnapshot(q, (querySnapshot) => {
       let messages = [];
@@ -50,8 +50,8 @@ const RoomScreen = ({ route }) => {
       });
 
       setMessages(messages);
+      return unsub();
     });
-    return unsub();
   }, []);
 
   function handleSend(messages) {
