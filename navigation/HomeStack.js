@@ -58,7 +58,7 @@ export default function HomeStack() {
       <ModalStack.Screen
         name="ChatApp"
         component={ChatApp}
-        options={{ title: "Home" }}
+        options={{ title: "MyChatApp" }}
       />
       <ModalStack.Screen name="AddRoom" component={AddRoomScreen} />
     </ModalStack.Navigator>
