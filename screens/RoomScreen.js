@@ -54,7 +54,8 @@ const RoomScreen = ({ route }) => {
     });
   }, []);
 
-  function handleSend(messages) {
+  function handleSend(newMessage = []) {
+    setMessages(GiftedChat.append(messages, newMessage));
     const text = messages[0].text;
 
     const threadDocRef = doc(firestore, "THREADS", thread._id);
